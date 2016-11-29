@@ -14,7 +14,7 @@ function curl($url, $args) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
   
-	if(!empty($args){
+	if(!empty($args)){
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $args);
 	}  
