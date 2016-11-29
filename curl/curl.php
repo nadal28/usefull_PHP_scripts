@@ -1,12 +1,6 @@
 <?php
 
-function curl($url, $args) {
-
-	$args = implode('&', array_map(
-		function ($v, $k) { return sprintf("%s=%s", $k, $v); },
-		$args,
-		array_keys($args)
-		));
+function curl($url, $args = null) {
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
@@ -15,6 +9,12 @@ function curl($url, $args) {
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
   
 	if(!empty($args)){
+		$args = implode('&', array_map(
+		function ($v, $k) { return sprintf("%s=%s", $k, $v); },
+		$args,
+		array_keys($args)
+		));
+
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $args);
 	}  
