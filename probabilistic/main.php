@@ -2,7 +2,7 @@
 
 //casa: 10, coche: 30, agua: 90, comida: 90
 
-$array = array(10, 10, 10, 10);
+$array = array(10, 30, 90, 90);
 
 $rand = mt_rand() % array_sum($array);
 
